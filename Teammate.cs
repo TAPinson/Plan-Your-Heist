@@ -10,6 +10,7 @@ namespace plan_your_heist
         {
             Name = name;
         }
+
         public void AddSkillLevel(int skill)
         {
             SkillLevel = skill;
