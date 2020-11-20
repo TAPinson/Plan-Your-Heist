@@ -42,33 +42,47 @@ namespace plan_your_heist
 
             Console.WriteLine($"Team Members: {team.Count}");
 
-            int bankDifficulty = 100;
+            int infinityZero = 0;
 
-            List<int> teamSkillCatcher = new List<int>();
-
-            foreach (Teammate member in team)
+            while (infinityZero == 0)
             {
-                teamSkillCatcher.Add(member.SkillLevel);
-            }
+                Console.WriteLine("How many trial runs should we go through?");
+                string timesToTryResponse = Console.ReadLine();
+                int timesToTry = Int16.Parse(timesToTryResponse);
+                int counter = 0;
+                while (counter < timesToTry)
+                {
+                    counter++;
+                    int bankDifficulty = 100;
 
-            int teamSkill = teamSkillCatcher.Sum();
+                    List<int> teamSkillCatcher = new List<int>();
+                    foreach (Teammate member in team)
+                    {
+                        teamSkillCatcher.Add(member.SkillLevel);
+                    }
+                    int teamSkill = teamSkillCatcher.Sum();
 
-            Random r = new Random();
-            int luckValue = r.Next(1, 11);
-            Console.WriteLine($"Bank difficulty before luck: {bankDifficulty}");
-            bankDifficulty = bankDifficulty + luckValue;
-            Console.WriteLine($"Bank difficulty after luck: {bankDifficulty}");
-            Console.WriteLine($"Team Combined Skill: {teamSkill} --- Bank Difficulty: {bankDifficulty}");
+                    Random r = new Random();
+                    int luckValue = r.Next(1, 11);
+                    bankDifficulty = bankDifficulty + luckValue;
+                    Console.WriteLine($"Team Combined Skill: {teamSkill} --- Bank Difficulty: {bankDifficulty}");
 
-            if (teamSkill > bankDifficulty)
-            {
+                    if (teamSkill > bankDifficulty)
+                    {
 
-                Console.WriteLine("Successfully robbed bank");
-            }
-            else
-            {
+                        Console.WriteLine("Successfully robbed bank");
+                    }
+                    else
+                    {
 
-                Console.WriteLine("You have failed. You bring shame to your family...");
+                        Console.WriteLine("You have failed. You bring shame to your family...");
+                    }
+
+                }
+
+
+
+
             }
 
         }
