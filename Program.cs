@@ -10,14 +10,13 @@ namespace plan_your_heist
         {
 
             List<Teammate> team = new List<Teammate>();
-            int teammateToken = 0;
-            while (teammateToken == 0)
+            int foreverZero = 0;
+
+            while (foreverZero == 0)
             {
                 Teammate alpha = new Teammate();
 
                 Console.WriteLine("Plan Your Heist!");
-
-
 
                 Console.WriteLine("Enter a name for a new teammate:");
                 string proposedName = Console.ReadLine();
@@ -33,7 +32,6 @@ namespace plan_your_heist
 
                 Console.WriteLine("Enter teammate Skill Level: ");
                 string proposedSkillInput = Console.ReadLine();
-
                 try
                 {
                     Int16.Parse(proposedSkillInput);
@@ -43,11 +41,8 @@ namespace plan_your_heist
                     Console.WriteLine("You didn't enter a number");
                     break;
                 }
-
-
                 int proposedSkill = int.Parse(proposedSkillInput);
                 alpha.AddSkillLevel(proposedSkill);
-
 
 
                 Console.WriteLine("Enter teammate courage: ");
@@ -57,10 +52,8 @@ namespace plan_your_heist
 
                 team.Add(alpha);
             }
-
             Console.WriteLine($"Team Members: {team.Count}");
 
-            int foreverZero = 0;
 
             while (foreverZero == 0)
             {
@@ -89,7 +82,6 @@ namespace plan_your_heist
                 while (counter < timesToTry)
                 {
                     counter++;
-
 
                     List<int> teamSkillCatcher = new List<int>();
                     foreach (Teammate member in team)
