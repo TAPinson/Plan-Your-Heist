@@ -53,14 +53,24 @@ namespace plan_your_heist
 
             int teamSkill = teamSkillCatcher.Sum();
 
+            Random r = new Random();
+            int luckValue = r.Next(1, 11);
+            Console.WriteLine($"Bank difficulty before luck: {bankDifficulty}");
+            bankDifficulty = bankDifficulty + luckValue;
+            Console.WriteLine($"Bank difficulty after luck: {bankDifficulty}");
+            Console.WriteLine($"Team Combined Skill: {teamSkill} --- Bank Difficulty: {bankDifficulty}");
+
             if (teamSkill > bankDifficulty)
             {
+
                 Console.WriteLine("Successfully robbed bank");
             }
             else
             {
+
                 Console.WriteLine("You have failed. You bring shame to your family...");
             }
+
         }
     }
 }
