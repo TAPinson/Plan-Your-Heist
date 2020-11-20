@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace plan_your_heist
 {
@@ -10,7 +11,7 @@ namespace plan_your_heist
 
             List<Teammate> team = new List<Teammate>();
             int teammateToken = 0;
-            while (teammateToken < 5)
+            while (teammateToken == 0)
             {
                 Teammate alpha = new Teammate();
 
@@ -37,17 +38,29 @@ namespace plan_your_heist
                 alpha.AddCourage(proposedCourage);
 
                 team.Add(alpha);
-                teammateToken++;
-
             }
 
-            Console.WriteLine(team.Count);
+            Console.WriteLine($"Team Members: {team.Count}");
+
+            int bankDifficulty = 100;
+
+            List<int> teamSkillCatcher = new List<int>();
 
             foreach (Teammate member in team)
             {
-                Console.WriteLine($"Teammate {member.Name} - Skill: {member.SkillLevel} - Courage: {member.Courage}");
+                teamSkillCatcher.Add(member.SkillLevel);
             }
 
+            int teamSkill = teamSkillCatcher.Sum();
+
+            if (teamSkill > bankDifficulty)
+            {
+                Console.WriteLine("Successfully robbed bank");
+            }
+            else
+            {
+                Console.WriteLine("You have failed. You bring shame to your family...");
+            }
         }
     }
 }
